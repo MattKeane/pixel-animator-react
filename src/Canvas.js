@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useEffect } from "react"
 
 export default function Canvas(props) {
 
@@ -23,10 +23,9 @@ export default function Canvas(props) {
 		if (inRange) {
 			const x = Math.floor(e.offsetX / 10)
 			const y = Math.floor(e.offsetY / 10)
-			const newFrame = props.frame
+			const newFrame = JSON.parse(JSON.stringify(props.frame))
 			newFrame[y][x] = true
 			props.setFrame(newFrame)
-			drawFrame()
 		}
 	}
 
@@ -40,6 +39,8 @@ export default function Canvas(props) {
 			drawOnCanvas(e.nativeEvent)
 		}
 	}
+
+	useEffect(drawFrame, [props.frame])
 
 	return (
 		<canvas 
