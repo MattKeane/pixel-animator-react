@@ -1,21 +1,52 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef } from "react"
 
-export default function Canvas() {
+export default function Canvas(props) {
 
 	const canvas = useRef(null)
 
-	useEffect( () => {
+	function drawFrame() {
 		const ctx = canvas.current.getContext("2d")
-		ctx.beginPath()
-		ctx.rect(10, 10, 10, 10)
-		ctx.fillStyle = "#000"
-		ctx.fill()
-	})
+		props.frame.forEach( (row, i) => {
+			row.forEach( (pixel, j) => {
+				if (pixel) {
+					ctx.beginPath()
+					ctx.rect(j * 10, i * 10, 10, 10)
+					ctx.fillStyle = "#000"
+					ctx.fill()
+				}
+			})
+		})
+	}
+
+	function drawOnCanvas(e) {
+		const inRange = (e.offsetX >= 0 && e.offsetX < 200) && (e.offsetY >= 0 && e.offsetY < 200)
+		if (inRange) {
+			const x = Math.floor(e.offsetX / 10)
+			const y = Math.floor(e.offsetY / 10)
+			const newFrame = props.frame
+			newFrame[y][x] = true
+			props.setFrame(newFrame)
+			drawFrame()
+		}
+	}
+
+	function handleMouseDown(e) {
+		props.setDrawing(true)
+		drawOnCanvas(e.nativeEvent)
+	}
+
+	function handleMouseMove(e) {
+		if (props.drawing) {
+			drawOnCanvas(e.nativeEvent)
+		}
+	}
 
 	return (
 		<canvas 
 			height="200px" 
 			width="200px"
-			ref={ canvas } />
+			ref={ canvas }
+			onMouseDown={ handleMouseDown }
+			onMouseMove={ handleMouseMove } />
 	)
 }
