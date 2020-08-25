@@ -40,7 +40,7 @@ export default function Canvas(props) {
 		}
 	}
 
-	useEffect(drawFrame, [props.frame])
+	useEffect(drawFrame, props.frame)
 
 	return (
 		<canvas 
