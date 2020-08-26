@@ -9,6 +9,7 @@ function App() {
   const [drawing, setDrawing] = useState(false)
   const [currentFrame, setCurrentFrame] = useState(0)
   const [numberOfFrames, setNumberOfFrames] = useState(64)
+  const [animating, setAnimating] = useState(false)
 
   // function to create a frame array of width x height
   function createFrames(width, height) {
@@ -43,7 +44,9 @@ function App() {
         frames={ frames }
         setFrames={ setFrames }
         numberOfFrames={ numberOfFrames }
-        setNumberOfFrames={ setNumberOfFrames } />
+        setNumberOfFrames={ setNumberOfFrames } 
+        animating={ animating }
+        setAnimating={ setAnimating } />
     </div>
   );
 }

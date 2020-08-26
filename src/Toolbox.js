@@ -133,12 +133,32 @@ export default function Toolbox(props) {
 				<Input
 					className="delayInput"
 					type="number" />
-				<Button
-					content="Animate"
-					icon="play" />
-				<Button
-					content="Stop"
-					icon="stop" />
+				{
+					props.animating
+					?
+					<Button
+						content="Animate"
+						icon="play"
+						disabled />
+					:
+					<Button
+						content="Animate"
+						icon="play"
+						onClick={ e => props.setAnimating(true) } />
+				}
+				{
+					props.animating
+					?
+					<Button
+						content="Stop"
+						icon="stop"
+						onClick={ e => props.setAnimating(false) } />
+					:
+					<Button
+						content="Stop"
+						icon="stop"
+						disabled />					
+				}
 			</div>
 		</React.Fragment>
 	)
