@@ -27,6 +27,12 @@ export default function Toolbox(props) {
 		props.setFrames(newFrames)
 	}
 
+	function copyNext() {
+		const newFrames = JSON.parse(JSON.stringify(props.frames))
+		newFrames[props.currentFrame] = props.frames[props.currentFrame + 1]
+		props.setFrames(newFrames)
+	}
+
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
@@ -72,7 +78,8 @@ export default function Toolbox(props) {
 					<Button
 						content="Copy Next"
 						icon="angle right"
-						labelPosition="right" />
+						labelPosition="right"
+						onClick={copyNext} />
 				}				
 			</div>
 		</React.Fragment>
