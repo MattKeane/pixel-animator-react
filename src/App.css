@@ -9,11 +9,6 @@ canvas {
   margin: 5px;
 }
 
-.frameInput {
-  width: 50px;
-  margin-right: 4px;
-}
-
 .toolContainer {
   margin: 5px auto;
   display: flex;
@@ -22,4 +17,5 @@ canvas {
 
 .numberInput {
   width: 70px;
+  margin-right: 4px;
 }

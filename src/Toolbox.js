@@ -45,6 +45,9 @@ export default function Toolbox(props) {
 		} else {
 			props.setNumberOfFrames(64)
 		}
+		if (props.currentFrame + 1 > e.target.value) {
+			props.setCurrentFrame(e.target.value - 1)
+		}
 	}
 
 	return (
@@ -65,7 +68,8 @@ export default function Toolbox(props) {
 						onClick={ switchToPrevious } />
 				}				
 				<Input 
-					className="frameInput"
+					className="numberInput"
+					type="number"
 					value={ props.currentFrame + 1}
 					onChange={ changeCurrentFrame } />
 				{
