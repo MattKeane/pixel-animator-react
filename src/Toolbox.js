@@ -24,7 +24,7 @@ export default function Toolbox(props) {
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
-				<Label>
+				<Label basic>
 					Current Frame
 				</Label>
 				<Button 
@@ -37,6 +37,16 @@ export default function Toolbox(props) {
 				<Button 
 					icon="angle right"
 					onClick={ switchToNext } />
+			</div>
+			<div className="toolContainer">
+				<Button
+					content="Copy Prev"
+					icon="angle left"
+					labelPosition="left" />
+				<Button
+					content="Copy Next"
+					icon="angle right"
+					labelPosition="right" />
 			</div>
 		</React.Fragment>
 	)
