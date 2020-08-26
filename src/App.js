@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Canvas from "./Canvas"
 import Toolbox from "./Toolbox"
@@ -10,6 +10,7 @@ function App() {
   const [currentFrame, setCurrentFrame] = useState(0)
   const [numberOfFrames, setNumberOfFrames] = useState(64)
   const [animating, setAnimating] = useState(false)
+  const [animationDelay, setAnimationDelay] = useState(500)
 
   // function to create a frame array of width x height
   function createFrames(width, height) {
@@ -27,6 +28,24 @@ function App() {
     }
     return frames
   }
+
+  useEffect(() => {
+    function tick() {
+      console.log(currentFrame)
+      if (currentFrame < numberOfFrames - 1) {
+        console.log("advancing")
+        setCurrentFrame(currentFrame + 1)
+      } else {
+        console.log("resetting")
+        setCurrentFrame(0)
+      }
+    }
+    let interval = null
+    if (animating) {
+      interval = setInterval(tick, animationDelay)
+    }
+    return () => clearInterval(interval)
+  }, [animating, currentFrame, animationDelay, numberOfFrames])
 
   return (
     <div 
@@ -46,7 +65,11 @@ function App() {
         numberOfFrames={ numberOfFrames }
         setNumberOfFrames={ setNumberOfFrames } 
         animating={ animating }
-        setAnimating={ setAnimating } />
+        // startAnimation={ startAnimation }
+        // stopAnimation={ stopAnimation }
+        setAnimating={ setAnimating }
+        animationDelay={ animationDelay }
+        setAnimationDelay={ setAnimationDelay } />
     </div>
   );
 }

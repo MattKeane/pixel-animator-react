@@ -50,6 +50,14 @@ export default function Toolbox(props) {
 		}
 	}
 
+	function changeAnimationDelay(e) {
+		if (e.target.value < 1) {
+			props.setAnimationDelay(1)
+		} else {
+			props.setAnimationDelay(e.target.value)
+		}
+	}
+
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
@@ -132,7 +140,9 @@ export default function Toolbox(props) {
 				</Label>
 				<Input
 					className="delayInput"
-					type="number" />
+					type="number"
+					value={ props.animationDelay }
+					onChange={ changeAnimationDelay } />
 				{
 					props.animating
 					?
