@@ -21,6 +21,12 @@ export default function Toolbox(props) {
 		}
 	}
 
+	function copyPrev() {
+		const newFrames = JSON.parse(JSON.stringify(props.frames))
+		newFrames[props.currentFrame] = props.frames[props.currentFrame - 1]
+		props.setFrames(newFrames)
+	}
+
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
@@ -39,14 +45,35 @@ export default function Toolbox(props) {
 					onClick={ switchToNext } />
 			</div>
 			<div className="toolContainer">
-				<Button
-					content="Copy Prev"
-					icon="angle left"
-					labelPosition="left" />
-				<Button
-					content="Copy Next"
-					icon="angle right"
-					labelPosition="right" />
+				{
+					props.currentFrame === 0
+					?
+					<Button
+						content="Copy Prev"
+						icon="angle left"
+						labelPosition="left"
+						disabled />
+					:
+					<Button
+						content="Copy Prev"
+						icon="angle left"
+						labelPosition="left"
+						onClick={copyPrev} />
+				}
+				{
+					props.currentFrame === 63
+					?
+					<Button
+						content="Copy Next"
+						icon="angle right"
+						labelPosition="right" 
+						disabled />
+					:
+					<Button
+						content="Copy Next"
+						icon="angle right"
+						labelPosition="right" />
+				}				
 			</div>
 		</React.Fragment>
 	)

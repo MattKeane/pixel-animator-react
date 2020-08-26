@@ -38,7 +38,9 @@ function App() {
         setDrawing={ setDrawing } />
       <Toolbox 
         currentFrame={ currentFrame }
-        setCurrentFrame={ setCurrentFrame } />
+        setCurrentFrame={ setCurrentFrame }
+        frames={ frames }
+        setFrames={ setFrames } />
     </div>
   );
 }
