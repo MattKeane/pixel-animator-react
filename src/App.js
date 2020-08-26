@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Canvas from "./Canvas"
+import Toolbox from "./Toolbox"
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         setFrame= { setFrame }
         drawing={ drawing }
         setDrawing={ setDrawing } />
+      <Toolbox />
     </div>
   );
 }

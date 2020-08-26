@@ -43,11 +43,13 @@ export default function Canvas(props) {
 	useEffect(drawFrame, props.frame)
 
 	return (
-		<canvas 
-			height="200px" 
-			width="200px"
-			ref={ canvas }
-			onMouseDown={ handleMouseDown }
-			onMouseMove={ handleMouseMove } />
+		<div>
+			<canvas 
+				height="200px" 
+				width="200px"
+				ref={ canvas }
+				onMouseDown={ handleMouseDown }
+				onMouseMove={ handleMouseMove } />
+		</div>
 	)
 }
