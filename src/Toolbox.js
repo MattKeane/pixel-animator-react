@@ -39,16 +39,32 @@ export default function Toolbox(props) {
 				<Label basic>
 					Current Frame
 				</Label>
-				<Button 
-					icon="angle left"
-					onClick={ switchToPrevious } />
+				{
+					props.currentFrame === 0
+					?
+					<Button 
+						icon="angle left"
+						disabled />
+					:
+					<Button 
+						icon="angle left"
+						onClick={ switchToPrevious } />
+				}				
 				<Input 
 					className="numberInput"
 					value={ props.currentFrame + 1}
 					onChange={ handleChange } />
-				<Button 
-					icon="angle right"
-					onClick={ switchToNext } />
+				{
+					props.currentFrame === 63
+					?
+					<Button 
+						icon="angle right"
+						disabled />
+					:
+					<Button 
+						icon="angle right"
+						onClick={ switchToNext } />
+				}				
 			</div>
 			<div className="toolContainer">
 				{
