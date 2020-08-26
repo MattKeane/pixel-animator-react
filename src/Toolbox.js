@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Input } from "semantic-ui-react"
+import { Button, Input, Label } from "semantic-ui-react"
 
 export default function Toolbox(props) {
 
@@ -22,17 +22,22 @@ export default function Toolbox(props) {
 	}
 
 	return (
-		<div>
-			<Button 
-				icon="angle left"
-				onClick={ switchToPrevious } />
-			<Input 
-				className="numberInput"
-				value={ props.currentFrame + 1}
-				onChange={ handleChange } />
-			<Button 
-				icon="angle right"
-				onClick={ switchToNext } />
-		</div>
+		<React.Fragment>
+			<div className="toolContainer">
+				<Label>
+					Current Frame
+				</Label>
+				<Button 
+					icon="angle left"
+					onClick={ switchToPrevious } />
+				<Input 
+					className="numberInput"
+					value={ props.currentFrame + 1}
+					onChange={ handleChange } />
+				<Button 
+					icon="angle right"
+					onClick={ switchToNext } />
+			</div>
+		</React.Fragment>
 	)
 }

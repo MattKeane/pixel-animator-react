@@ -13,3 +13,8 @@ canvas {
   width: 50px;
   margin-right: 4px;
 }
+
+.toolContainer {
+  margin: 0 auto;
+  display: flex;
+}
