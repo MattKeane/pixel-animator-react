@@ -40,13 +40,13 @@ export default function Toolbox(props) {
 	function changeNumberOfFrames(e) {
 		if (e.target.value >= 1 && e.target.value <= 64) {
 			props.setNumberOfFrames(e.target.value)
+			if (props.currentFrame + 1 > e.target.value) {
+				props.setCurrentFrame(e.target.value - 1)
+			}
 		} else if (e.target.value < 1) {
 			props.setNumberOfFrames(1) 
 		} else {
 			props.setNumberOfFrames(64)
-		}
-		if (props.currentFrame + 1 > e.target.value) {
-			props.setCurrentFrame(e.target.value - 1)
 		}
 	}
 
