@@ -5,20 +5,25 @@ import Toolbox from "./Toolbox"
 
 function App() {
 
-  const [frame, setFrame] = useState(createFrame(20, 20))
+  const [frames, setFrames] = useState(createFrames(20, 20))
   const [drawing, setDrawing] = useState(false)
+  const [currentFrame, setCurrentFrame] = useState(0)
 
   // function to create a frame array of width x height
-  function createFrame(width, height) {
-    const frame = []
-    for (let i = 0; i < height; i++) {
-      const row = []
-      for (let j = 0; j < width; j++) {
-        row.push(false)
+  function createFrames(width, height) {
+    const frames = []
+    for (let i = 0; i < 64; i++) {
+      const frame = []
+      for (let j = 0; j < height; j++) {
+        const row = []
+        for (let k = 0; k < width; k++) {
+          row.push(false)
+        }
+        frame.push(row)
       }
-      frame.push(row)
+      frames.push(frame)
     }
-    return frame
+    return frames
   }
 
   return (
@@ -26,11 +31,14 @@ function App() {
       className="App"
       onMouseUp={ e => setDrawing(false)} >
       <Canvas
-        frame={ frame }
-        setFrame= { setFrame }
+        frames={ frames }
+        currentFrame={ currentFrame }
+        setFrames= { setFrames }
         drawing={ drawing }
         setDrawing={ setDrawing } />
-      <Toolbox />
+      <Toolbox 
+        currentFrame={ currentFrame }
+        setCurrentFrame={ setCurrentFrame } />
     </div>
   );
 }

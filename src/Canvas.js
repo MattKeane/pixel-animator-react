@@ -6,7 +6,8 @@ export default function Canvas(props) {
 
 	function drawFrame() {
 		const ctx = canvas.current.getContext("2d")
-		props.frame.forEach( (row, i) => {
+		ctx.clearRect(0, 0, 200, 200)
+		props.frames[props.currentFrame].forEach( (row, i) => {
 			row.forEach( (pixel, j) => {
 				if (pixel) {
 					ctx.beginPath()
@@ -23,9 +24,9 @@ export default function Canvas(props) {
 		if (inRange) {
 			const x = Math.floor(e.offsetX / 10)
 			const y = Math.floor(e.offsetY / 10)
-			const newFrame = JSON.parse(JSON.stringify(props.frame))
-			newFrame[y][x] = true
-			props.setFrame(newFrame)
+			const newFrames = JSON.parse(JSON.stringify(props.frames))
+			newFrames[props.currentFrame][y][x] = true
+			props.setFrames(newFrames)
 		}
 	}
 

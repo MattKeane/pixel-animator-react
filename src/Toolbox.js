@@ -1,25 +1,23 @@
-import React, { useState } from "react"
+import React from "react"
 import { Button, Input } from "semantic-ui-react"
 
-export default function Toolbox() {
-
-	const [currentFrame, setCurrentFrame] = useState(0)
+export default function Toolbox(props) {
 
 	function switchToPrevious() {
-		if (currentFrame > 0) {
-			setCurrentFrame(currentFrame - 1)
+		if (props.currentFrame > 0) {
+			props.setCurrentFrame(props.currentFrame - 1)
 		}
 	}
 
 	function switchToNext() {
-		if (currentFrame < 63) {
-			setCurrentFrame(currentFrame + 1)
+		if (props.currentFrame < 63) {
+			props.setCurrentFrame(props.currentFrame + 1)
 		}
 	}
 
 	function handleChange(e) {
 		if (e.target.value >= 1 && e.target.value <= 64) {
-			setCurrentFrame(e.target.value - 1)
+			props.setCurrentFrame(e.target.value - 1)
 		}
 	}
 
@@ -30,7 +28,7 @@ export default function Toolbox() {
 				onClick={ switchToPrevious } />
 			<Input 
 				className="numberInput"
-				value={ currentFrame + 1}
+				value={ props.currentFrame + 1}
 				onChange={ handleChange } />
 			<Button 
 				icon="angle right"
