@@ -15,9 +15,13 @@ export default function Toolbox(props) {
 		}
 	}
 
-	function handleChange(e) {
-		if (e.target.value >= 1 && e.target.value <= 64) {
+	function changeCurrentFrame(e) {
+		if (e.target.value >= 1 && e.target.value <= props.numberOfFrames) {
 			props.setCurrentFrame(e.target.value - 1)
+		} else if (e.target.value < 1) {
+			props.setCurrentFrame(1)
+		} else if (e.target.value > props.numberOfFrames) {
+			props.setCurrentFrame(props.numberOfFrames - 1)
 		}
 	}
 
@@ -63,9 +67,9 @@ export default function Toolbox(props) {
 				<Input 
 					className="frameInput"
 					value={ props.currentFrame + 1}
-					onChange={ handleChange } />
+					onChange={ changeCurrentFrame } />
 				{
-					props.currentFrame === 63
+					props.currentFrame >= props.numberOfFrames - 1
 					?
 					<Button 
 						icon="angle right"
@@ -83,8 +87,8 @@ export default function Toolbox(props) {
 				<Input
 					className="numberInput"
 					type="number"
-					value={props.numberOfFrames}
-					onChange={changeNumberOfFrames} />
+					value={ props.numberOfFrames }
+					onChange={ changeNumberOfFrames } />
 			</div>
 			<div className="toolContainer">
 				{
@@ -100,10 +104,10 @@ export default function Toolbox(props) {
 						content="Copy Prev"
 						icon="angle left"
 						labelPosition="left"
-						onClick={copyPrev} />
+						onClick={ copyPrev } />
 				}
 				{
-					props.currentFrame === 63
+					props.currentFrame >= props.numberOfFrames - 1
 					?
 					<Button
 						content="Copy Next"
@@ -115,7 +119,7 @@ export default function Toolbox(props) {
 						content="Copy Next"
 						icon="angle right"
 						labelPosition="right"
-						onClick={copyNext} />
+						onClick={ copyNext } />
 				}				
 			</div>
 		</React.Fragment>
