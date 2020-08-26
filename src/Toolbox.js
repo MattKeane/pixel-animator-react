@@ -33,6 +33,16 @@ export default function Toolbox(props) {
 		props.setFrames(newFrames)
 	}
 
+	function changeNumberOfFrames(e) {
+		if (e.target.value >= 1 && e.target.value <= 64) {
+			props.setNumberOfFrames(e.target.value)
+		} else if (e.target.value < 1) {
+			props.setNumberOfFrames(1) 
+		} else {
+			props.setNumberOfFrames(64)
+		}
+	}
+
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
@@ -51,7 +61,7 @@ export default function Toolbox(props) {
 						onClick={ switchToPrevious } />
 				}				
 				<Input 
-					className="numberInput"
+					className="frameInput"
 					value={ props.currentFrame + 1}
 					onChange={ handleChange } />
 				{
@@ -65,6 +75,16 @@ export default function Toolbox(props) {
 						icon="angle right"
 						onClick={ switchToNext } />
 				}				
+			</div>
+			<div className="toolContainer">
+				<Label basic>
+					Number of Frames
+				</Label>
+				<Input
+					className="numberInput"
+					type="number"
+					value={props.numberOfFrames}
+					onChange={changeNumberOfFrames} />
 			</div>
 			<div className="toolContainer">
 				{

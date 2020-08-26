@@ -8,6 +8,7 @@ function App() {
   const [frames, setFrames] = useState(createFrames(20, 20))
   const [drawing, setDrawing] = useState(false)
   const [currentFrame, setCurrentFrame] = useState(0)
+  const [numberOfFrames, setNumberOfFrames] = useState(64)
 
   // function to create a frame array of width x height
   function createFrames(width, height) {
@@ -29,7 +30,7 @@ function App() {
   return (
     <div 
       className="App"
-      onMouseUp={ e => setDrawing(false)} >
+      onMouseUp={ e => setDrawing(false) } >
       <Canvas
         frames={ frames }
         currentFrame={ currentFrame }
@@ -40,7 +41,9 @@ function App() {
         currentFrame={ currentFrame }
         setCurrentFrame={ setCurrentFrame }
         frames={ frames }
-        setFrames={ setFrames } />
+        setFrames={ setFrames }
+        numberOfFrames={ numberOfFrames }
+        setNumberOfFrames={ setNumberOfFrames } />
     </div>
   );
 }
