@@ -126,6 +126,20 @@ export default function Toolbox(props) {
 						onClick={ copyNext } />
 				}				
 			</div>
+			<div className="toolContainer">
+				<Label basic>
+					Animation Delay
+				</Label>
+				<Input
+					className="delayInput"
+					type="number" />
+				<Button
+					content="Animate"
+					icon="play" />
+				<Button
+					content="Stop"
+					icon="stop" />
+			</div>
 		</React.Fragment>
 	)
 }
