@@ -8,3 +8,8 @@ canvas {
   border: 1px solid black;
   margin: 5px;
 }
+
+.numberInput {
+  width: 50px;
+  margin-right: 4px;
+}
