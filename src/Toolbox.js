@@ -49,19 +49,13 @@ export default function Toolbox(props) {
 	return (
 		<React.Fragment>
 			<div className="toolContainer">
-				<Label basic>
-					Current Frame
-				</Label>			
+				<Label>Current Frame:</Label>
 				<Input 
 					className="numberInput"
 					type="number"
 					value={ props.currentFrame + 1}
-					onChange={ changeCurrentFrame } />			
-			</div>
-			<div className="toolContainer">
-				<Label basic>
-					Number of Frames
-				</Label>
+					onChange={ changeCurrentFrame } />
+					<Label>Number of Frames:</Label>			
 				<Input
 					className="numberInput"
 					type="number"

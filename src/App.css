@@ -12,7 +12,6 @@ canvas {
 .toolContainer {
   margin: 5px auto;
   display: flex;
-  border-radius: 5px;
 }
 
 .numberInput {
@@ -25,7 +24,20 @@ canvas {
   margin-right: 3px;
 }
 
-.canvasContainer{
+.canvasContainer {
   display: flex;
   margin: 5px auto;
+}
+
+.inputContainer {
+  display: block;
+  margin: 0 2px;
+}
+
+.inputContainer {
+  margin: 5px auto;
+  /*margin: 5px auto;*/
+  /*width: 50%;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
 }
