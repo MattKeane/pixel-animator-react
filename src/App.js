@@ -31,12 +31,9 @@ function App() {
 
   useEffect(() => {
     function tick() {
-      console.log(currentFrame)
       if (currentFrame < numberOfFrames - 1) {
-        console.log("advancing")
         setCurrentFrame(currentFrame + 1)
       } else {
-        console.log("resetting")
         setCurrentFrame(0)
       }
     }
@@ -65,8 +62,6 @@ function App() {
         numberOfFrames={ numberOfFrames }
         setNumberOfFrames={ setNumberOfFrames } 
         animating={ animating }
-        // startAnimation={ startAnimation }
-        // stopAnimation={ stopAnimation }
         setAnimating={ setAnimating }
         animationDelay={ animationDelay }
         setAnimationDelay={ setAnimationDelay } />
