@@ -6,7 +6,7 @@
 
 canvas {
   border: 1px solid black;
-  margin: 5px;
+  margin-right: 3px;
 }
 
 .toolContainer {
@@ -17,10 +17,15 @@ canvas {
 
 .numberInput {
   width: 70px;
-  margin-right: 4px;
+  margin-right: 3px;
 }
 
 .delayInput {
   width: 90px;
-  margin-right: 4px;
+  margin-right: 3px;
+}
+
+.canvasContainer{
+  display: flex;
+  margin: 5px auto;
 }

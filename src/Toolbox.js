@@ -3,18 +3,6 @@ import { Button, Input, Label } from "semantic-ui-react"
 
 export default function Toolbox(props) {
 
-	function switchToPrevious() {
-		if (props.currentFrame > 0) {
-			props.setCurrentFrame(props.currentFrame - 1)
-		}
-	}
-
-	function switchToNext() {
-		if (props.currentFrame < 63) {
-			props.setCurrentFrame(props.currentFrame + 1)
-		}
-	}
-
 	function changeCurrentFrame(e) {
 		if (e.target.value >= 1 && e.target.value <= props.numberOfFrames) {
 			props.setCurrentFrame(e.target.value - 1)
@@ -63,34 +51,12 @@ export default function Toolbox(props) {
 			<div className="toolContainer">
 				<Label basic>
 					Current Frame
-				</Label>
-				{
-					props.currentFrame === 0
-					?
-					<Button 
-						icon="angle left"
-						disabled />
-					:
-					<Button 
-						icon="angle left"
-						onClick={ switchToPrevious } />
-				}				
+				</Label>			
 				<Input 
 					className="numberInput"
 					type="number"
 					value={ props.currentFrame + 1}
-					onChange={ changeCurrentFrame } />
-				{
-					props.currentFrame >= props.numberOfFrames - 1
-					?
-					<Button 
-						icon="angle right"
-						disabled />
-					:
-					<Button 
-						icon="angle right"
-						onClick={ switchToNext } />
-				}				
+					onChange={ changeCurrentFrame } />			
 			</div>
 			<div className="toolContainer">
 				<Label basic>

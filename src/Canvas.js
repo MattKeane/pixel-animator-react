@@ -1,8 +1,21 @@
 import React, { useRef, useEffect } from "react"
+import { Button } from "semantic-ui-react"
 
 export default function Canvas(props) {
 
 	const canvas = useRef(null)
+
+	function switchToPrevious() {
+		if (props.currentFrame > 0) {
+			props.setCurrentFrame(props.currentFrame - 1)
+		}
+	}
+
+	function switchToNext() {
+		if (props.currentFrame < props.numberOfFrames - 1) {
+			props.setCurrentFrame(props.currentFrame + 1)
+		}
+	}
 
 	function drawFrame() {
 		const ctx = canvas.current.getContext("2d")
@@ -44,13 +57,35 @@ export default function Canvas(props) {
 	useEffect(drawFrame, props.frame)
 
 	return (
-		<div>
+		<div className="canvasContainer">
+			{
+				props.currentFrame > 0
+				?
+				<Button 
+					icon="angle left"
+					onClick={ switchToPrevious } />
+				:
+				<Button 
+					icon="angle left"
+					disabled />				
+			}
 			<canvas 
 				height="200px" 
 				width="200px"
 				ref={ canvas }
 				onMouseDown={ handleMouseDown }
 				onMouseMove={ handleMouseMove } />
+			{
+				props.currentFrame < props.numberOfFrames - 1
+				?
+				<Button 
+					icon="angle right"
+					onClick={ switchToNext } />
+				:
+				<Button 
+					icon="angle right"
+					disabled />				
+			}
 		</div>
 	)
 }

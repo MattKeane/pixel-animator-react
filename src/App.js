@@ -53,7 +53,9 @@ function App() {
         currentFrame={ currentFrame }
         setFrames= { setFrames }
         drawing={ drawing }
-        setDrawing={ setDrawing } />
+        setDrawing={ setDrawing }
+        setCurrentFrame={ setCurrentFrame }
+        numberOfFrames={ numberOfFrames } />
       <Toolbox 
         currentFrame={ currentFrame }
         setCurrentFrame={ setCurrentFrame }
