@@ -130,6 +130,11 @@ export default function Toolbox(props) {
 						disabled />					
 				}
 			</div>
+			<div className="toolContainer">
+				<Button
+					content="Download GIF"
+					icon="download" />
+			</div>
 		</React.Fragment>
 	)
 }
