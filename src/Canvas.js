@@ -40,7 +40,11 @@ export default function Canvas(props) {
 			const x = Math.floor(e.offsetX / 10)
 			const y = Math.floor(e.offsetY / 10)
 			const newFrames = JSON.parse(JSON.stringify(props.frames))
-			newFrames[props.currentFrame][y][x] = true
+			if (mode === "draw") {
+				newFrames[props.currentFrame][y][x] = true
+			} else {
+				newFrames[props.currentFrame][y][x] = false
+			}
 			props.setFrames(newFrames)
 		}
 	}
