@@ -1,7 +1,9 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { Button } from "semantic-ui-react"
 
 export default function Canvas(props) {
+
+	const [mode, setMode] = useState("draw")
 
 	const canvas = useRef(null)
 
@@ -88,7 +90,7 @@ export default function Canvas(props) {
 			}
 			<Button.Group vertical>
 				{
-					props.mode === "draw"
+					mode === "draw"
 					?
 					<React.Fragment>
 						<Button
@@ -96,13 +98,13 @@ export default function Canvas(props) {
 							disabled />
 						<Button
 							icon="eraser"
-							onClick={ e => props.setMode("erase") } />
+							onClick={ e => setMode("erase") } />
 					</React.Fragment>
 					:
 					<React.Fragment>
 						<Button
 							icon="pencil"
-							onClick={ e => props.setMode("draw") } />
+							onClick={ e => setMode("draw") } />
 						<Button
 							icon="eraser"
 							disabled />
