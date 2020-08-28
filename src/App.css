@@ -7,6 +7,7 @@
 canvas {
   border: 1px solid black;
   margin-right: 3px;
+  background-image: url(./background.svg);
 }
 
 .toolContainer {
