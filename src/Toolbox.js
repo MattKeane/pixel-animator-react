@@ -47,20 +47,24 @@ export default function Toolbox(props) {
 	}
 
 	return (
-		<React.Fragment>
+		<div className="toolBox">
 			<div className="toolContainer">
-				<Label>Current Frame:</Label>
-				<Input 
-					className="numberInput"
-					type="number"
-					value={ props.currentFrame + 1}
-					onChange={ changeCurrentFrame } />
+				<div>
+					<Label>Current Frame:</Label>
+					<Input 
+						className="numberInput"
+						type="number"
+						value={ props.currentFrame + 1}
+						onChange={ changeCurrentFrame } />
+				</div>
+				<div>
 					<Label>Number of Frames:</Label>			
-				<Input
-					className="numberInput"
-					type="number"
-					value={ props.numberOfFrames }
-					onChange={ changeNumberOfFrames } />
+					<Input
+						className="numberInput"
+						type="number"
+						value={ props.numberOfFrames }
+						onChange={ changeNumberOfFrames } />
+				</div>
 			</div>
 			<div className="toolContainer">
 				{
@@ -95,14 +99,16 @@ export default function Toolbox(props) {
 				}				
 			</div>
 			<div className="toolContainer">
-				<Label basic>
-					Animation Delay
-				</Label>
-				<Input
-					className="delayInput"
-					type="number"
-					value={ props.animationDelay }
-					onChange={ changeAnimationDelay } />
+				<div>
+					<Label>
+						Animation Delay:
+					</Label>
+					<Input
+						className="delayInput"
+						type="number"
+						value={ props.animationDelay }
+						onChange={ changeAnimationDelay } />
+				</div>
 				{
 					props.animating
 					?
@@ -135,6 +141,6 @@ export default function Toolbox(props) {
 					content="Download GIF"
 					icon="download" />
 			</div>
-		</React.Fragment>
+		</div>
 	)
 }

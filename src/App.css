@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   display: flex;
+  padding: 5px;
 }
 
 canvas {
@@ -9,9 +10,16 @@ canvas {
   background-image: url(./background.svg);
 }
 
+/*.toolBox {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+}*/
+
 .toolContainer {
-  margin: 5px auto;
+  margin: 5px 0;
   display: flex;
+  justify-content: space-between;
 }
 
 .numberInput {
@@ -27,6 +35,7 @@ canvas {
 .canvasContainer {
   display: flex;
   margin: 5px auto;
+  justify-content: center;
 }
 
 .inputContainer {
@@ -36,8 +45,4 @@ canvas {
 
 .inputContainer {
   margin: 5px auto;
-  /*margin: 5px auto;*/
-  /*width: 50%;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
 }
