@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Canvas from "./Canvas"
 import Toolbox from "./Toolbox"
+import Palette from "./Palette"
 
 function App() {
 
@@ -48,25 +49,28 @@ function App() {
     <div 
       className="App"
       onMouseUp={ e => setDrawing(false) } >
-      <Canvas
-        frames={ frames }
-        currentFrame={ currentFrame }
-        setFrames= { setFrames }
-        drawing={ drawing }
-        setDrawing={ setDrawing }
-        setCurrentFrame={ setCurrentFrame }
-        numberOfFrames={ numberOfFrames } />
-      <Toolbox 
-        currentFrame={ currentFrame }
-        setCurrentFrame={ setCurrentFrame }
-        frames={ frames }
-        setFrames={ setFrames }
-        numberOfFrames={ numberOfFrames }
-        setNumberOfFrames={ setNumberOfFrames } 
-        animating={ animating }
-        setAnimating={ setAnimating }
-        animationDelay={ animationDelay }
-        setAnimationDelay={ setAnimationDelay } />
+      <div>
+        <Canvas
+          frames={ frames }
+          currentFrame={ currentFrame }
+          setFrames= { setFrames }
+          drawing={ drawing }
+          setDrawing={ setDrawing }
+          setCurrentFrame={ setCurrentFrame }
+          numberOfFrames={ numberOfFrames } />
+        <Toolbox 
+          currentFrame={ currentFrame }
+          setCurrentFrame={ setCurrentFrame }
+          frames={ frames }
+          setFrames={ setFrames }
+          numberOfFrames={ numberOfFrames }
+          setNumberOfFrames={ setNumberOfFrames } 
+          animating={ animating }
+          setAnimating={ setAnimating }
+          animationDelay={ animationDelay }
+          setAnimationDelay={ setAnimationDelay } />
+        </div>
+        <Palette />
     </div>
   );
 }
