@@ -12,6 +12,7 @@ function App() {
   const [numberOfFrames, setNumberOfFrames] = useState(64)
   const [animating, setAnimating] = useState(false)
   const [animationDelay, setAnimationDelay] = useState(500)
+  const [mode, setMode] = useState("draw")
 
   // function to create a frame array of width x height
   function createFrames(width, height) {
@@ -57,7 +58,9 @@ function App() {
           drawing={ drawing }
           setDrawing={ setDrawing }
           setCurrentFrame={ setCurrentFrame }
-          numberOfFrames={ numberOfFrames } />
+          numberOfFrames={ numberOfFrames }
+          mode={ mode }
+          setMode={ setMode } />
         <Toolbox 
           currentFrame={ currentFrame }
           setCurrentFrame={ setCurrentFrame }

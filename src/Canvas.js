@@ -87,8 +87,27 @@ export default function Canvas(props) {
 					disabled />				
 			}
 			<Button.Group vertical>
-				<Button icon="pencil" />
-				<Button icon="eraser" />
+				{
+					props.mode === "draw"
+					?
+					<React.Fragment>
+						<Button
+							icon="pencil"
+							disabled />
+						<Button
+							icon="eraser"
+							onClick={ e => props.setMode("erase") } />
+					</React.Fragment>
+					:
+					<React.Fragment>
+						<Button
+							icon="pencil"
+							onClick={ e => props.setMode("draw") } />
+						<Button
+							icon="eraser"
+							disabled />
+					</React.Fragment>
+				}
 			</Button.Group>
 		</div>
 	)
