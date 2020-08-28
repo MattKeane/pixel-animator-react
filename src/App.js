@@ -12,6 +12,7 @@ function App() {
   const [numberOfFrames, setNumberOfFrames] = useState(64)
   const [animating, setAnimating] = useState(false)
   const [animationDelay, setAnimationDelay] = useState(500)
+  const [drawColor, setDrawColor] = useState("#000")
 
   // function to create a frame array of width x height
   function createFrames(width, height) {
@@ -57,7 +58,8 @@ function App() {
           drawing={ drawing }
           setDrawing={ setDrawing }
           setCurrentFrame={ setCurrentFrame }
-          numberOfFrames={ numberOfFrames } />
+          numberOfFrames={ numberOfFrames }
+          drawColor={ drawColor } />
         <Toolbox 
           currentFrame={ currentFrame }
           setCurrentFrame={ setCurrentFrame }
@@ -70,7 +72,9 @@ function App() {
           animationDelay={ animationDelay }
           setAnimationDelay={ setAnimationDelay } />
         </div>
-        <Palette />
+        <Palette
+          drawColor={ drawColor }
+          setDrawColor={ setDrawColor } />
     </div>
   );
 }

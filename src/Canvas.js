@@ -27,7 +27,7 @@ export default function Canvas(props) {
 				if (pixel) {
 					ctx.beginPath()
 					ctx.rect(j * 10, i * 10, 10, 10)
-					ctx.fillStyle = "#000"
+					ctx.fillStyle = pixel
 					ctx.fill()
 				}
 			})
@@ -41,7 +41,7 @@ export default function Canvas(props) {
 			const y = Math.floor(e.offsetY / 10)
 			const newFrames = JSON.parse(JSON.stringify(props.frames))
 			if (mode === "draw") {
-				newFrames[props.currentFrame][y][x] = true
+				newFrames[props.currentFrame][y][x] = props.drawColor
 			} else {
 				newFrames[props.currentFrame][y][x] = false
 			}
