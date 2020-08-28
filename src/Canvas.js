@@ -86,6 +86,10 @@ export default function Canvas(props) {
 					icon="angle right"
 					disabled />				
 			}
+			<Button.Group vertical>
+				<Button icon="pencil" />
+				<Button icon="eraser" />
+			</Button.Group>
 		</div>
 	)
 }
