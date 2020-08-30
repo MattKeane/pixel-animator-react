@@ -47,11 +47,11 @@ canvas {
   height: 25px;
   border-radius: 4px;
   background-color: #CCC;
+  padding: 4px;
 }
 
 .colorButton div {
   width: 17px;
   height: 17px;
-  margin: 4px;
   border-radius: 4px;
 }
