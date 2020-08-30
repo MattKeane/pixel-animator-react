@@ -139,7 +139,8 @@ export default function Toolbox(props) {
 			<div className="toolContainer">
 				<Button
 					content="Download GIF"
-					icon="download" />
+					icon="download"
+					onClick={ props.getGif } />
 			</div>
 		</div>
 	)

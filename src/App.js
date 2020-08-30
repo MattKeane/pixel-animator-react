@@ -31,6 +31,12 @@ function App() {
     return frames
   }
 
+  // function to fetch GIF from backend
+  function getGif() {
+    console.log(process.env.REACT_APP_API_URL)
+  }
+
+  // this effect controls the canvas animation
   useEffect(() => {
     function tick() {
       if (currentFrame < numberOfFrames - 1) {
@@ -70,7 +76,8 @@ function App() {
           animating={ animating }
           setAnimating={ setAnimating }
           animationDelay={ animationDelay }
-          setAnimationDelay={ setAnimationDelay } />
+          setAnimationDelay={ setAnimationDelay }
+          getGif={ getGif } />
         </div>
         <Palette
           drawColor={ drawColor }
