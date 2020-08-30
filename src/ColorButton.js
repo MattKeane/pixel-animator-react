@@ -1,8 +1,11 @@
 import React from "react"
 
 export default function ColorButton(props) {
+
+	const buttonStyle = {backgroundColor: props.color}
+	
 	return (
 		<div className="colorButton">
-			<div></div>
+			<div style={ buttonStyle } />
 		</div>)
 }

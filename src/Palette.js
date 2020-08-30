@@ -8,7 +8,7 @@ export default function Palette(props) {
 				type="color"
 				value={ props.drawColor }
 				onChange={ e => props.setDrawColor(e.target.value) } />
-			<ColorButton />
+			<ColorButton color="#FF0" />
 		</React.Fragment>
 	)
 }
