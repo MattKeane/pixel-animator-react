@@ -10,12 +10,6 @@ canvas {
   background-image: url(./background.svg);
 }
 
-/*.toolBox {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-end;
-}*/
-
 .toolContainer {
   margin: 5px 0;
   display: flex;
@@ -45,4 +39,20 @@ canvas {
 
 .inputContainer {
   margin: 5px auto;
+}
+
+.colorButton {
+  display: inline;
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  background-color: #CCC;
+}
+
+.colorButton div {
+  width: 19px;
+  height: 19px;
+  margin: 3px;
+  border-radius: 4px;
+  background-color: red;
 }
