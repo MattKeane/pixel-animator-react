@@ -12,7 +12,7 @@ function App() {
   const [numberOfFrames, setNumberOfFrames] = useState(64)
   const [animating, setAnimating] = useState(false)
   const [animationDelay, setAnimationDelay] = useState(500)
-  const [drawColor, setDrawColor] = useState("#000")
+  const [drawColor, setDrawColor] = useState("#000000")
 
   // function to create a frame array of width x height
   function createFrames(width, height) {

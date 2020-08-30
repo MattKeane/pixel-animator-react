@@ -45,6 +45,7 @@ canvas {
   display: inline;
   width: 25px;
   height: 25px;
+  margin: 1px;
   border-radius: 4px;
   background-color: #CCC;
   padding: 4px;
