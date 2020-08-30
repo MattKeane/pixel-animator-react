@@ -8,11 +8,12 @@ export default function ColorButton(props) {
 		padding: "3px"} 
 		: 
 		{}
-	
+
 	return (
 		<div 
 			className="colorButton"
-			style={ selectedStyle} >
+			style={ selectedStyle}
+			onClick={ e => props.setDrawColor(props.color) } >
 			<div style={ buttonStyle } />
 		</div>)
 }

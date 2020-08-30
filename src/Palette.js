@@ -17,8 +17,9 @@ export default function Palette(props) {
 		"#FF88AA",
 		]
 
-	const colorButtons = colors.map( color => {
+	const colorButtons = colors.map( (color, i) => {
 		return <ColorButton 
+					key={ i }
 					color={ color }
 					selected={ props.drawColor === color }
 					setDrawColor={ props.setDrawColor } />
