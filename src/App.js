@@ -32,8 +32,30 @@ function App() {
   }
 
   // function to fetch GIF from backend
-  function getGif() {
-    console.log(process.env.REACT_APP_API_URL)
+  async function getGif() {
+    try {
+      const url = process.env.REACT_APP_API_URL + "/images/"
+      const payload = JSON.stringify({
+        "delay": +animationDelay,
+        "frames": frames.slice(0, numberOfFrames),
+        "pixelSize": 10,
+        "width": 200,
+        "height": 200
+      })
+      const gifResponse = await fetch(url, {
+        method: "POST",
+        body: payload,
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      const gifJson = await gifResponse.json()
+      if (gifJson.status === 200) {
+        window.open(`${process.env.REACT_APP_API_URL}/images/${gifJson.data.image_uuid}`, "_blank")
+      }
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   // this effect controls the canvas animation
