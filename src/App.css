@@ -56,3 +56,10 @@ canvas {
   height: 17px;
   border-radius: 4px;
 }
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  width: 500px;
+}
