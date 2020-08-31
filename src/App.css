@@ -58,8 +58,12 @@ canvas {
 }
 
 .palette {
+  width: 375px;
+}
+
+.palettePane {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  width: 500px;
+  width: 100%;
 }
