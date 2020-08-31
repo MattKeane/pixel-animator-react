@@ -115,6 +115,9 @@ export default function Canvas(props) {
 					</React.Fragment>
 				}
 			</Button.Group>
+			<div className="colorIndicator">
+				<div style={{backgroundColor: props.drawColor}} />
+			</div>
 		</div>
 	)
 }
