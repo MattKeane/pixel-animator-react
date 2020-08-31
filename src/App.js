@@ -78,32 +78,37 @@ function App() {
     <div 
       className="App"
       onMouseUp={ e => setDrawing(false) } >
-      <div>
-        <Canvas
-          frames={ frames }
-          currentFrame={ currentFrame }
-          setFrames= { setFrames }
-          drawing={ drawing }
-          setDrawing={ setDrawing }
-          setCurrentFrame={ setCurrentFrame }
-          numberOfFrames={ numberOfFrames }
-          drawColor={ drawColor } />
-        <Toolbox 
-          currentFrame={ currentFrame }
-          setCurrentFrame={ setCurrentFrame }
-          frames={ frames }
-          setFrames={ setFrames }
-          numberOfFrames={ numberOfFrames }
-          setNumberOfFrames={ setNumberOfFrames } 
-          animating={ animating }
-          setAnimating={ setAnimating }
-          animationDelay={ animationDelay }
-          setAnimationDelay={ setAnimationDelay }
-          getGif={ getGif } />
-        </div>
-        <Palette
-          drawColor={ drawColor }
-          setDrawColor={ setDrawColor } />
+      <header>
+        <h1>Pixel Wizard</h1>
+      </header>
+      <div className="main">
+        <div>
+          <Canvas
+            frames={ frames }
+            currentFrame={ currentFrame }
+            setFrames= { setFrames }
+            drawing={ drawing }
+            setDrawing={ setDrawing }
+            setCurrentFrame={ setCurrentFrame }
+            numberOfFrames={ numberOfFrames }
+            drawColor={ drawColor } />
+          <Toolbox 
+            currentFrame={ currentFrame }
+            setCurrentFrame={ setCurrentFrame }
+            frames={ frames }
+            setFrames={ setFrames }
+            numberOfFrames={ numberOfFrames }
+            setNumberOfFrames={ setNumberOfFrames } 
+            animating={ animating }
+            setAnimating={ setAnimating }
+            animationDelay={ animationDelay }
+            setAnimationDelay={ setAnimationDelay }
+            getGif={ getGif } />
+          </div>
+          <Palette
+            drawColor={ drawColor }
+            setDrawColor={ setDrawColor } />
+      </div>
     </div>
   );
 }

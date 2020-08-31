@@ -1,7 +1,20 @@
 .App {
   text-align: center;
-  display: flex;
   padding: 5px;
+}
+
+header {
+  padding: 5px;
+  background-color: indigo;
+}
+
+header h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: HotPink;
+}
+
+.main {
+  display: flex;
 }
 
 canvas {
@@ -58,6 +71,7 @@ canvas {
 }
 
 .palette {
+  padding: 5px;
   width: 375px;
 }
 
