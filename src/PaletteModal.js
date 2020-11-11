@@ -1,12 +1,14 @@
 import React, { useState } from "react"
 import { Button, Modal } from "semantic-ui-react"
 import ColorIndicator from "./ColorIndicator"
+import Palette from "./Palette"
 
 export default function PaletteModal(props) {
 	const [open, setOpen] = useState(false)
 
 	return (
 		<Modal
+			size="tiny"
 			onClose={() => setOpen(false)}
 			onOpen={() => setOpen(true)}
 			open={open}
@@ -15,10 +17,16 @@ export default function PaletteModal(props) {
 				onClick={e => setOpen(true)} 
 			/>}
 		>
-			This is the modal
-			<Button onClick={() => setOpen(false)}>
-				Close
-			</Button>
+			<Modal.Content>
+				<Palette
+					drawColor={ props.drawColor }
+					setDrawColor={ props.setDrawColor } />
+			</Modal.Content>
+			<Modal.Actions>
+				<Button onClick={() => setOpen(false)}>
+					Close
+				</Button>
+			</Modal.Actions>
 		</Modal>
 	)
 }

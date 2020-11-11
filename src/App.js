@@ -82,7 +82,6 @@ function App() {
         <h1>Pixel Wizard</h1>
       </header>
       <div className="main">
-        <div>
           <Canvas
             frames={ frames }
             currentFrame={ currentFrame }
@@ -91,7 +90,8 @@ function App() {
             setDrawing={ setDrawing }
             setCurrentFrame={ setCurrentFrame }
             numberOfFrames={ numberOfFrames }
-            drawColor={ drawColor } />
+            drawColor={ drawColor }
+            setDrawColor={ setDrawColor } />
           <Toolbox 
             currentFrame={ currentFrame }
             setCurrentFrame={ setCurrentFrame }
@@ -104,10 +104,6 @@ function App() {
             animationDelay={ animationDelay }
             setAnimationDelay={ setAnimationDelay }
             getGif={ getGif } />
-          </div>
-          <Palette
-            drawColor={ drawColor }
-            setDrawColor={ setDrawColor } />
       </div>
     </div>
   );

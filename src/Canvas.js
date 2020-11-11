@@ -116,7 +116,9 @@ export default function Canvas(props) {
 					</React.Fragment>
 				}
 			</Button.Group>
-			<PaletteModal drawColor={props.drawColor} />
+			<PaletteModal 
+				drawColor={ props.drawColor }
+				setDrawColor={ props.setDrawColor } />
 		</div>
 	)
 }
