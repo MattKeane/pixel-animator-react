@@ -60,7 +60,7 @@ export default function Canvas(props) {
 		}
 	}
 
-	useEffect(drawFrame, props.frame)
+	useEffect(drawFrame, [props.currentFrame, props.frames])
 
 	return (
 		<div className="canvasContainer">
