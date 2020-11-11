@@ -43,6 +43,7 @@ function App() {
       })
       const gifResponse = await fetch(url, {
         method: "POST",
+        credentials: "include",
         body: payload,
         headers: {
           "Content-Type": "application/json"
