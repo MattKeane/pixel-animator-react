@@ -6,11 +6,12 @@
 header {
   padding: 5px;
   background-color: indigo;
+  margin: 0 0 5px;
 }
 
 header h1 {
   font-family: 'Press Start 2P', cursive;
-  color: HotPink;
+  color: hotpink;
 }
 
 .main {
@@ -51,6 +52,15 @@ canvas {
   display: flex;
   margin: 5px auto;
   justify-content: center;
+}
+
+.canvasWithButtons {
+  display: flex;
+  flex-direction: column;
+}
+.canvasWithButtons div {
+  margin: 0 0 5px;
+  display: flex;
 }
 
 .inputContainer {

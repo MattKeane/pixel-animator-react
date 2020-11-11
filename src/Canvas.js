@@ -65,57 +65,61 @@ export default function Canvas(props) {
 
 	return (
 		<div className="canvasContainer">
-			{
-				props.currentFrame > 0
-				?
-				<Button 
-					icon="angle left"
-					onClick={ switchToPrevious } />
-				:
-				<Button 
-					icon="angle left"
-					disabled />				
-			}
-			<canvas 
-				height="200px" 
-				width="200px"
-				ref={ canvas }
-				onMouseDown={ handleMouseDown }
-				onMouseMove={ handleMouseMove } />
-			{
-				props.currentFrame < props.numberOfFrames - 1
-				?
-				<Button 
-					icon="angle right"
-					onClick={ switchToNext } />
-				:
-				<Button 
-					icon="angle right"
-					disabled />				
-			}
-			<Button.Group vertical>
-				{
-					mode === "draw"
-					?
-					<React.Fragment>
-						<Button
-							icon="pencil"
-							disabled />
-						<Button
-							icon="eraser"
-							onClick={ e => setMode("erase") } />
-					</React.Fragment>
-					:
-					<React.Fragment>
-						<Button
-							icon="pencil"
-							onClick={ e => setMode("draw") } />
-						<Button
-							icon="eraser"
-							disabled />
-					</React.Fragment>
-				}
-			</Button.Group>
+			<div className="canvasWithButtons">
+				<div>
+					{
+						props.currentFrame > 0
+						?
+						<Button 
+							icon="angle left"
+							onClick={ switchToPrevious } />
+						:
+						<Button 
+							icon="angle left"
+							disabled />				
+					}
+					<canvas 
+						height="200px" 
+						width="200px"
+						ref={ canvas }
+						onMouseDown={ handleMouseDown }
+						onMouseMove={ handleMouseMove } />
+					{
+						props.currentFrame < props.numberOfFrames - 1
+						?
+						<Button 
+							icon="angle right"
+							onClick={ switchToNext } />
+						:
+						<Button 
+							icon="angle right"
+							disabled />				
+					}
+				</div>
+				<Button.Group horizontal>
+					{
+						mode === "draw"
+						?
+						<React.Fragment>
+							<Button
+								icon="pencil"
+								disabled />
+							<Button
+								icon="eraser"
+								onClick={ e => setMode("erase") } />
+						</React.Fragment>
+						:
+						<React.Fragment>
+							<Button
+								icon="pencil"
+								onClick={ e => setMode("draw") } />
+							<Button
+								icon="eraser"
+								disabled />
+						</React.Fragment>
+					}
+				</Button.Group>
+			</div>
 			<PaletteModal 
 				drawColor={ props.drawColor }
 				setDrawColor={ props.setDrawColor } />
