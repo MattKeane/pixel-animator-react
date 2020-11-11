@@ -1,6 +1,5 @@
 import React from "react"
 import ColorButton from "./ColorButton"
-import { Tab } from "semantic-ui-react"
 
 export default function Palette(props) {
 
@@ -256,60 +255,17 @@ export default function Palette(props) {
   		'#eeeeee'
 		]
 
-
-	const paneOne = colors.slice(0, 64).map( (color, i) => {
-		return <ColorButton 
-			key={ i }
-			color={ color }
-			selected={ props.drawColor === color }
-			setDrawColor={ props.setDrawColor } />
-	})
-
-	const paneTwo = colors.slice(64, 128).map( (color, i) => {
-		return <ColorButton 
-			key={ i }
-			color={ color }
-			selected={ props.drawColor === color }
-			setDrawColor={ props.setDrawColor } />
-	})
-
-	const paneThree = colors.slice(128, 192).map( (color, i) => {
-		return <ColorButton 
-			key={ i }
-			color={ color }
-			selected={ props.drawColor === color }
-			setDrawColor={ props.setDrawColor } />
-	})
-
-	const paneFour = colors.slice(192).map( (color, i) => {
-		return <ColorButton 
-			key={ i }
-			color={ color }
-			selected={ props.drawColor === color }
-			setDrawColor={ props.setDrawColor } />
-	})
-
-	const panes = [
-		{ 
-			menuItem: "Palette 1",
-			render: () => <Tab.Pane><div className="palettePane">{ paneOne }</div></Tab.Pane>
-		},
-		{
-			menuItem: "Palette 2",
-			render: () => <Tab.Pane><div className="palettePane">{ paneTwo }</div></Tab.Pane>
-		},
-		{
-			menuItem: "Palette 3",
-			render: () => <Tab.Pane><div className="palettePane">{ paneThree }</div></Tab.Pane>
-		},
-		{
-			menuItem: "Palette 4",
-			render: () => <Tab.Pane><div className="palettePane">{ paneFour }</div></Tab.Pane>
-		}]
+  const allColors = colors.map( (color, i) => {
+    return <ColorButton 
+      key={ i }
+      color={ color }
+      selected={ props.drawColor === color }
+      setDrawColor={ props.setDrawColor } />
+  })
 
 	return (
-		<div className="palette">
-			<Tab panes={ panes } />
+		<div className="palettePane">
+			{ allColors }
 		</div>
 	)
 }

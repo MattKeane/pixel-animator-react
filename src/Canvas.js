@@ -83,7 +83,8 @@ export default function Canvas(props) {
 						width="200px"
 						ref={ canvas }
 						onMouseDown={ handleMouseDown }
-						onMouseMove={ handleMouseMove } />
+						onMouseMove={ handleMouseMove }
+						onTouchMove={ e => console.log(e.nativeEvent)} />
 					{
 						props.currentFrame < props.numberOfFrames - 1
 						?

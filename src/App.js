@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Canvas from "./Canvas"
 import Toolbox from "./Toolbox"
-import Palette from "./Palette"
 
 function App() {
 
