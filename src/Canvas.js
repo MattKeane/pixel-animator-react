@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react"
 import { Button } from "semantic-ui-react"
+import PaletteModal from "./PaletteModal"
 
 export default function Canvas(props) {
 
@@ -115,9 +116,7 @@ export default function Canvas(props) {
 					</React.Fragment>
 				}
 			</Button.Group>
-			<div className="colorIndicator">
-				<div style={{backgroundColor: props.drawColor}} />
-			</div>
+			<PaletteModal drawColor={props.drawColor} />
 		</div>
 	)
 }
