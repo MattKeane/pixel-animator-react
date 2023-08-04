@@ -33,7 +33,7 @@ function App() {
   // function to fetch GIF from backend
   async function getGif() {
     try {
-      const url = process.env.REACT_APP_API_URL + "/images/"
+      const url = "/images/"
       const payload = JSON.stringify({
         "delay": +animationDelay,
         "frames": frames.slice(0, numberOfFrames),
@@ -50,6 +50,7 @@ function App() {
         }
       })
       const gifJson = await gifResponse.json()
+      console.log(gifJson)
       if (gifJson.status === 200) {
         window.open(`${process.env.REACT_APP_API_URL}/images/${gifJson.data.image_uuid}`, "_blank")
       }
